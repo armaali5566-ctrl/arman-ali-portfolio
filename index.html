@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arman Ali | AI Developer & Data Analytics Specialist</title>
+  <meta name="description" content="Portfolio of Arman Ali, an aspiring AI Developer specializing in Generative AI, Data Analytics, Python, Machine Learning, and intelligent web applications.">
+  <meta name="keywords" content="Arman Ali, AI Developer, Generative AI, Data Analytics, Python, Power BI, Machine Learning, Next.js, Portfolio">
+  <meta name="author" content="Arman Ali">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Google Fonts: Space Grotesk & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- GSAP & ScrollTrigger from Cloudflare CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            beige: {
+              DEFAULT: '#F4F1EB',
+              light: '#FBF9F6',
+              dark: '#EBE6DC',
+            },
+            charcoal: {
+              DEFAULT: '#1C1B1A',
+              light: '#2A2928',
+              card: '#222120',
+            },
+            emerald: {
+              DEFAULT: '#065F46', // Deep forest emerald
+              hover: '#044E39',
+              light: '#E6F4EA',
+            },
+            terracotta: {
+              DEFAULT: '#E25822', // Vivid warm terracotta
+              hover: '#C84715',
+              light: '#FDEEE9',
+            },
+            muted: '#6B6965'
+          },
+          fontFamily: {
+            display: ['Space Grotesk', 'sans-serif'],
+            sans: ['Inter', 'sans-serif'],
+          },
+          animation: {
+            'marquee': 'marquee 28s linear infinite',
+            'spin-slow': 'spin 12s linear infinite',
+          },
+          keyframes: {
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --color-beige: #F4F1EB;
+      --color-beige-light: #FBF9F6;
+      --color-charcoal: #1C1B1A;
+      --color-emerald: #065F46;
+      --color-terracotta: #E25822;
+      --color-muted: #6B6965;
+    }
+
+    body {
+      background-color: #F4F1EB;
+      color: #1C1B1A;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Custom Minimalist Scrollbar */
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #F4F1EB;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #065F46;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #E25822;
+    }
+
+    /* Text Reveal Masks */
+    .reveal-mask {
+      overflow: hidden;
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    /* Magnetic Button Interaction */
+    .magnetic-btn {
+      position: relative;
+      display: inline-block;
+      transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .magnetic-btn-text {
+      display: inline-block;
+      pointer-events: none;
+      transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    /* Marquee pause on hover */
+    .marquee-container:hover .animate-marquee {
+      animation-play-state: paused;
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      ::before,
+      ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="font-sans antialiased selection:bg-terracotta selection:text-white">
+
+  <!-- ========================================================================= -->
+  <!-- 1. NAVIGATION BAR (Sticky with Mobile Drawer)                              -->
+  <!-- ========================================================================= -->
+  <nav id="navbar" class="fixed w-full top-0 z-50 bg-[#F4F1EB]/90 backdrop-blur-md border-b border-charcoal/10 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      
+      <!-- Brand Logo -->
+      <a href="#hero" class="font-display font-bold text-xl md:text-2xl tracking-tight text-charcoal flex items-center gap-2 group">
+        <span>ARMAN ALI</span>
+        <span class="w-2.5 h-2.5 rounded-full bg-terracotta block transition-transform group-hover:scale-125"></span>
+        <span class="hidden sm:inline-block text-[11px] font-mono text-muted pl-1 border-l border-charcoal/20">AI DEV</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="hidden lg:flex items-center space-x-8 text-xs font-semibold uppercase tracking-widest text-charcoal">
+        <a href="#skills" class="nav-link hover:text-emerald transition-colors relative py-1">
+          Skills
+        </a>
+        <a href="#tools" class="nav-link hover:text-emerald transition-colors relative py-1">
+          Stack
+        </a>
+        <a href="#work" class="nav-link hover:text-emerald transition-colors relative py-1">
+          Projects
+        </a>
+        <a href="#experience" class="nav-link hover:text-emerald transition-colors relative py-1">
+          Experience
+        </a>
+        <a href="#about" class="nav-link hover:text-emerald transition-colors relative py-1">
+          About
+        </a>
+        <a href="#github" class="nav-link hover:text-emerald transition-colors relative py-1">
+          Activity
+        </a>
+        <a href="#resume" class="nav-link hover:text-emerald transition-colors relative py-1">
+          Resume
+        </a>
+        <a href="#contact" class="px-5 py-2 rounded-full bg-charcoal text-beige hover:bg-emerald transition-colors duration-300 shadow-sm">
+          Let's Talk
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-btn" type="button" class="lg:hidden p-2 rounded-lg text-charcoal hover:bg-charcoal/5 focus:outline-none" aria-label="Toggle navigation menu" aria-expanded="false">
+        <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <svg id="close-icon" class="w-6 h-6 hidden text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-beige border-b border-charcoal/10 px-6 py-6 shadow-xl">
+      <div class="flex flex-col space-y-4 text-sm font-semibold uppercase tracking-widest text-charcoal">
+        <a href="#skills" class="mobile-nav-link hover:text-emerald py-2 border-b border-charcoal/5">01 — Skills</a>
+        <a href="#tools" class="mobile-nav-link hover:text-emerald py-2 border-b border-charcoal/5">02 — Stack</a>
+        <a href="#work" class="mobile-nav-link hover:text-emerald py-2 border-b border-charcoal/5">03 — Projects</a>
+        <a href="#experience" class="mobile-nav-link hover:text-emerald py-2 border-b border-charcoal/5">04 — Experience &amp; Education</a>
+        <a href="#about" class="mobile-nav-link hover:text-emerald py-2 border-b border-charcoal/5">05 — About</a>
+        <a href="#github" class="mobile-nav-link hover:text-emerald py-2 border-b border-charcoal/5">06 — GitHub Activity</a>
+        <a href="#resume" class="mobile-nav-link hover:text-emerald py-2 border-b border-charcoal/5">07 — Resume</a>
+        <a href="#contact" class="mobile-nav-link inline-block text-center mt-2 px-6 py-3 rounded-full bg-emerald text-white hover:bg-terracotta transition-colors">
+          Contact Arman
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========================================================================= -->
+  <!-- 2. HERO SECTION                                                           -->
+  <!-- ========================================================================= -->
+  <section id="hero" class="min-h-screen flex items-center pt-32 pb-16 px-6 max-w-7xl mx-auto">
+    <div class="grid md:grid-cols-12 gap-12 lg:gap-16 items-center w-full">
+      
+      <!-- Text & Headline Column -->
+      <div class="md:col-span-7 lg:col-span-8 space-y-8 z-10">
+        
+        <!-- Intro Label -->
+        <div class="flex items-center gap-3">
+          <span class="w-8 h-[2px] bg-terracotta"></span>
+          <span class="text-terracotta font-display font-semibold tracking-widest text-xs sm:text-sm uppercase block">
+            HELLO, I'M ARMAN ALI
+          </span>
+        </div>
+
+        <!-- Hero Headline -->
+        <h1 class="font-display font-bold text-6xl sm:text-7xl md:text-8xl lg:text-[7.5rem] leading-[0.88] tracking-tighter text-charcoal uppercase">
+          <div class="reveal-mask">
+            <div class="hero-reveal">DATA DRIVEN</div>
+          </div><br>
+          <div class="reveal-mask">
+            <div class="hero-reveal flex items-baseline gap-2">
+              INTELLIGENCE<span class="text-emerald">.</span>
+            </div>
+          </div>
+        </h1>
+
+        <!-- Headline & Bio Description -->
+        <div class="space-y-4 max-w-2xl">
+          <h2 class="text-lg sm:text-xl font-medium text-emerald tracking-normal">
+            AI Developer | Building Intelligent Digital Experiences
+          </h2>
+          <p class="text-base sm:text-lg text-muted font-light leading-relaxed">
+            &ldquo;I'm an aspiring AI Developer interested in building practical applications using AI, data, and modern web technologies. I enjoy turning ideas into useful digital products and continuously improving my technical skills.&rdquo;
+          </p>
+        </div>
+
+        <!-- Magnetic Call to Actions -->
+        <div class="flex flex-wrap items-center gap-5 pt-4">
+          <a href="#work" class="magnetic-btn group bg-emerald text-beige px-9 py-4 rounded-full font-medium hover:bg-terracotta transition-colors duration-400 shadow-md shadow-emerald/20 inline-flex items-center gap-3">
+            <span class="magnetic-btn-text text-xs uppercase tracking-widest font-semibold">Explore My Work</span>
+            <svg class="w-4 h-4 magnetic-btn-text" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+          </a>
+
+          <a href="#contact" class="magnetic-btn group border-2 border-charcoal text-charcoal px-9 py-4 rounded-full font-medium hover:bg-charcoal hover:text-beige transition-all duration-400 inline-flex items-center gap-3">
+            <span class="magnetic-btn-text text-xs uppercase tracking-widest font-semibold">Let's Connect</span>
+            <svg class="w-4 h-4 magnetic-btn-text" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Social Network Metadata Strip -->
+        <div class="pt-6 border-t border-charcoal/10 flex flex-wrap items-center gap-6 text-xs font-mono uppercase text-muted">
+          <span class="text-charcoal font-semibold">Channels:</span>
+          <a href="https://github.com/armaali5566-ctrl" target="_blank" rel="noopener noreferrer" class="hover:text-emerald transition-colors flex items-center gap-1.5">
+            <span>GitHub</span>
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/arman-ali-111a83422/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald transition-colors flex items-center gap-1.5">
+            <span>LinkedIn</span>
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+          <span class="text-muted/40">•</span>
+          <span class="text-emerald font-semibold">New Delhi, IN</span>
+        </div>
+
+      </div>
+
+      <!-- Arman Ali Portrait / Visual Framing -->
+      <div class="md:col-span-5 lg:col-span-4">
+        <div class="relative w-full aspect-[4/5] sm:aspect-[3/4] overflow-hidden rounded-t-full bg-beige-light group border-2 border-charcoal/15 shadow-2xl shadow-emerald/10">
+          
+          <!-- Subtle warm overlay -->
+          <div class="absolute inset-0 bg-terracotta/5 mix-blend-multiply group-hover:bg-transparent transition-colors duration-700 z-10 pointer-events-none"></div>
+          
+          <img
+            id="hero-portrait"
+            src="images/arman-portrait.jpg"
+            alt="Arman Ali Portrait"
+            class="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-out filter grayscale group-hover:grayscale-0"
+            onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&q=80';"
+          />
+
+          <!-- Decorative Rotating Badge -->
+          <div class="absolute bottom-6 right-6 z-20 bg-beige rounded-full p-3.5 animate-spin-slow shadow-lg border border-charcoal/10" title="AI & Analytics Systems">
+            <svg class="w-7 h-7 text-emerald" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 22l10-10L22 22 12 2z" />
+            </svg>
+          </div>
+
+          <!-- Bottom Label Badge -->
+          <div class="absolute bottom-4 left-4 z-20 px-3 py-1 rounded-full bg-charcoal/90 text-beige text-[10px] font-mono">
+            FIG. 01 — ARMAN ALI
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 3. CORE SKILLS (PREMIUM BENTO GRID)                                        -->
+  <!-- ========================================================================= -->
+  <section id="skills" class="py-28 px-6 max-w-7xl mx-auto border-t border-charcoal/10">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+      <div>
+        <h2 class="text-terracotta font-display font-semibold tracking-widest text-xs uppercase mb-3 flex items-center gap-2">
+          <span class="w-3.5 h-3.5 rounded-full border-2 border-terracotta"></span>
+          01 / EXPERTISE
+        </h2>
+        <h3 class="font-display font-bold text-4xl sm:text-5xl md:text-6xl tracking-tighter uppercase text-charcoal">
+          Core Skills
+        </h3>
+      </div>
+      <p class="text-muted font-light text-base sm:text-lg max-w-sm mt-6 md:mt-0 md:text-right">
+        Combining algorithmic reasoning, structured data engineering, and modern web application frameworks.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      
+      <!-- Skill Bento 1: Data Analytics & BI -->
+      <div class="group border border-charcoal/10 bg-beige-light p-8 rounded-2xl hover:border-emerald transition-all duration-400 relative overflow-hidden flex flex-col justify-between min-h-[310px] shadow-sm hover:shadow-xl">
+        <div class="absolute inset-0 bg-emerald/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out pointer-events-none"></div>
+        <div class="relative z-10 flex justify-between items-start">
+          <span class="text-5xl font-display font-bold text-charcoal/15 group-hover:text-emerald/40 transition-colors">01</span>
+          <div class="w-10 h-10 rounded-xl bg-emerald/10 text-emerald flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="relative z-10 mt-8">
+          <h4 class="font-display font-bold text-2xl uppercase mb-3 text-charcoal group-hover:text-emerald transition-colors">Data Analytics</h4>
+          <ul class="space-y-2 font-light text-muted text-sm tracking-wide">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald"></span> Data Mining &amp; Cleaning</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald"></span> Relational Modeling (SQL)</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald"></span> ETL Data Transformation</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Skill Bento 2: Visualization -->
+      <div class="group border border-charcoal/10 bg-beige-light p-8 rounded-2xl hover:border-terracotta transition-all duration-400 relative overflow-hidden flex flex-col justify-between min-h-[310px] shadow-sm hover:shadow-xl">
+        <div class="absolute inset-0 bg-terracotta/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out pointer-events-none"></div>
+        <div class="relative z-10 flex justify-between items-start">
+          <span class="text-5xl font-display font-bold text-charcoal/15 group-hover:text-terracotta/40 transition-colors">02</span>
+          <div class="w-10 h-10 rounded-xl bg-terracotta/10 text-terracotta flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="relative z-10 mt-8">
+          <h4 class="font-display font-bold text-2xl uppercase mb-3 text-charcoal group-hover:text-terracotta transition-colors">Visualization</h4>
+          <ul class="space-y-2 font-light text-muted text-sm tracking-wide">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-terracotta"></span> Power BI Dashboards</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-terracotta"></span> Looker Studio Reports</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-terracotta"></span> Advanced Excel &amp; Formulas</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Skill Bento 3: Programming & Engineering -->
+      <div class="group border border-charcoal/10 bg-beige-light p-8 rounded-2xl hover:border-emerald transition-all duration-400 relative overflow-hidden flex flex-col justify-between min-h-[310px] shadow-sm hover:shadow-xl">
+        <div class="absolute inset-0 bg-emerald/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out pointer-events-none"></div>
+        <div class="relative z-10 flex justify-between items-start">
+          <span class="text-5xl font-display font-bold text-charcoal/15 group-hover:text-emerald/40 transition-colors">03</span>
+          <div class="w-10 h-10 rounded-xl bg-emerald/10 text-emerald flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="relative z-10 mt-8">
+          <h4 class="font-display font-bold text-2xl uppercase mb-3 text-charcoal group-hover:text-emerald transition-colors">Programming</h4>
+          <ul class="space-y-2 font-light text-muted text-sm tracking-wide">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald"></span> Python (NumPy, Pandas)</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald"></span> Modern Web (JS, Next.js)</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald"></span> Automation Scripts &amp; APIs</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Skill Bento 4: AI & Generative Workflows -->
+      <div class="group border border-charcoal/10 bg-beige-light p-8 rounded-2xl hover:border-terracotta transition-all duration-400 relative overflow-hidden flex flex-col justify-between min-h-[310px] shadow-sm hover:shadow-xl">
+        <div class="absolute inset-0 bg-terracotta/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out pointer-events-none"></div>
+        <div class="relative z-10 flex justify-between items-start">
+          <span class="text-5xl font-display font-bold text-charcoal/15 group-hover:text-terracotta/40 transition-colors">04</span>
+          <div class="w-10 h-10 rounded-xl bg-terracotta/10 text-terracotta flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="relative z-10 mt-8">
+          <h4 class="font-display font-bold text-2xl uppercase mb-3 text-charcoal group-hover:text-terracotta transition-colors">AI &amp; Generative</h4>
+          <ul class="space-y-2 font-light text-muted text-sm tracking-wide">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-terracotta"></span> Prompt Engineering Systems</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-terracotta"></span> ChatGPT, Gemini &amp; Claude</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-terracotta"></span> ML Fundamentals &amp; Scikit-Learn</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 4. INFINITE TOOLS MARQUEE (EMERALD & TERRACOTTA)                          -->
+  <!-- ========================================================================= -->
+  <section id="tools" class="py-12 bg-emerald border-y-4 border-charcoal text-beige overflow-hidden whitespace-nowrap relative shadow-2xl marquee-container">
+    <div class="animate-marquee flex gap-12 sm:gap-16 items-center w-max font-display text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter uppercase select-none">
+      <span>SQL</span> <span class="text-terracotta font-serif">*</span>
+      <span>Microsoft Excel</span> <span class="text-terracotta font-serif">*</span>
+      <span>Python</span> <span class="text-terracotta font-serif">*</span>
+      <span>NumPy</span> <span class="text-terracotta font-serif">*</span>
+      <span>Power BI</span> <span class="text-terracotta font-serif">*</span>
+      <span>Google Sheets</span> <span class="text-terracotta font-serif">*</span>
+      <span>Looker Studio</span> <span class="text-terracotta font-serif">*</span>
+      <span>ChatGPT</span> <span class="text-terracotta font-serif">*</span>
+      <span>Google Gemini</span> <span class="text-terracotta font-serif">*</span>
+      <span>Claude</span> <span class="text-terracotta font-serif">*</span>
+      <span>Machine Learning</span> <span class="text-terracotta font-serif">*</span>
+      
+      <!-- Duplicate Set for Seamless Continuous Loop -->
+      <span>SQL</span> <span class="text-terracotta font-serif">*</span>
+      <span>Microsoft Excel</span> <span class="text-terracotta font-serif">*</span>
+      <span>Python</span> <span class="text-terracotta font-serif">*</span>
+      <span>NumPy</span> <span class="text-terracotta font-serif">*</span>
+      <span>Power BI</span> <span class="text-terracotta font-serif">*</span>
+      <span>Google Sheets</span> <span class="text-terracotta font-serif">*</span>
+      <span>Looker Studio</span> <span class="text-terracotta font-serif">*</span>
+      <span>ChatGPT</span> <span class="text-terracotta font-serif">*</span>
+      <span>Google Gemini</span> <span class="text-terracotta font-serif">*</span>
+      <span>Claude</span> <span class="text-terracotta font-serif">*</span>
+      <span>Machine Learning</span> <span class="text-terracotta font-serif">*</span>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 5. PINNED HORIZONTAL PROJECTS SECTION                                     -->
+  <!-- ========================================================================= -->
+  <section id="work" class="bg-charcoal text-beige relative">
+    
+    <!-- Pinned Horizontal Wrapper -->
+    <div class="horizontal-scroll-wrapper min-h-screen md:h-screen flex flex-col md:flex-row md:items-center overflow-hidden relative">
+
+      <!-- Section Title Header -->
+      <div class="pt-24 px-6 md:px-12 md:absolute md:top-16 md:left-12 z-20 pointer-events-none">
+        <p class="text-terracotta font-display font-semibold tracking-widest text-xs uppercase mb-2">
+          SELECTED WORK
+        </p>
+        <h2 class="font-display font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tighter uppercase text-beige">
+          PROJECTS
+        </h2>
+        <p class="text-xs font-mono text-beige/50 mt-1 hidden md:block">
+          Scroll down to explore case studies &rarr;
+        </p>
+      </div>
+
+      <!-- The Track (Slides Horizontally on Desktop; Stacks Responsively on Mobile) -->
+      <div id="project-track" class="horizontal-scroll-track flex flex-col md:flex-row gap-10 md:gap-14 px-6 md:pl-28 md:pr-40 items-center w-full md:w-max py-16 md:py-0 md:pt-36">
+
+        <!-- Project 1: AI Fitness & Progress Tracker -->
+        <article class="project-card w-full sm:w-[90vw] md:w-[60vw] lg:w-[46vw] max-w-[720px] flex-shrink-0 group">
+          <div class="w-full aspect-[16/10] bg-charcoal-light overflow-hidden relative mb-6 rounded-2xl border border-beige/10 shadow-xl">
+            <img
+              src="images/projects/ai-fitness.svg"
+              alt="AI Fitness Tracker Preview"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out opacity-90 group-hover:opacity-100"
+              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=800&q=80';"
+            />
+            <div class="absolute inset-0 bg-emerald/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+            <div class="absolute top-4 left-4 z-10 px-3 py-1 rounded-md text-xs font-mono bg-charcoal/90 text-beige border border-white/10">
+              Generative AI &amp; Health
+            </div>
+            <div class="absolute top-4 right-4 z-10 px-2.5 py-1 rounded-md text-xs font-mono text-terracotta bg-charcoal/90 border border-white/10 font-bold">
+              № 01
+            </div>
+          </div>
+          <div class="flex justify-between items-start gap-4">
+            <div>
+              <h4 class="font-display font-bold text-2xl sm:text-3xl mb-2 group-hover:text-emerald transition-colors uppercase text-beige">
+                AI Fitness &amp; Progress Tracker
+              </h4>
+              <p class="text-beige/70 font-light text-sm sm:text-base max-w-xl leading-relaxed">
+                An intelligent workout application that parses exercise logs, evaluates progression metrics, and generates adaptive training recommendations.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-2 text-xs font-mono">
+                <span class="px-2.5 py-1 rounded bg-beige/5 border border-beige/10 text-terracotta">Next.js</span>
+                <span class="px-2.5 py-1 rounded bg-beige/5 border border-beige/10 text-emerald">JavaScript</span>
+                <span class="px-2.5 py-1 rounded bg-beige/5 border border-beige/10 text-beige/80">AI Logic</span>
+                <span class="px-2.5 py-1 rounded bg-beige/5 border border-beige/10 text-beige/80">Tailwind</span>
+              </div>
+            </div>
+            <a href="https://github.com/armaali5566-ctrl" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full border border-beige/30 flex items-center justify-center group-hover:bg-emerald group-hover:border-emerald transition-all duration-300 -rotate-45 group-hover:rotate-0 flex-shrink-0" title="View Source on GitHub">
+              <svg class="w-5 h-5 text-beige" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 2: Intelligent Donation Platform -->
+        <article class="project-card w-full sm:w-[90vw] md:w-[60vw] lg:w-[46vw] max-w-[720px] flex-shrink-0 group">
+          <div class="w-full aspect-[16/10] bg-charcoal-light overflow-hidden relative mb-6 rounded-2xl border border-beige/10 shadow-xl">
+            <img
+              src="images/projects/donation-platform.svg"
+              alt="Donation Platform Preview"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out opacity-90 group-hover:opacity-100"
+              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=800&q=80';"
+            />
+            <div class="absolute inset-0 bg-terracotta/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+            <div class="absolute top-4 left-4 z-10 px-3 py-1 rounded-md text-xs font-mono bg-charcoal/90 text-beige border border-white/10">
+              Web Development &amp; Social Tech
+            </div>
+            <div class="absolute top-4 right-4 z-10 px-2.5 py-1 rounded-md text-xs font-mono text-terracotta bg-charcoal/90 border border-white/10 font-bold">
+              № 02
+            </div>
+          </div>
+          <div class="flex justify-between items-start gap-4">
+            <div>
+              <h4 class="font-display font-bold text-2xl sm:text-3xl mb-2 group-hover:text-terracotta transition-colors uppercase text-beige">
+                Intelligent Donation Platform
+              </h4>
+              <p class="text-beige/70 font-light text-sm sm:text-base max-w-xl leading-relaxed">
+                A seamless, transparent donation platform connecting donors directly with verified causes with smart categorization and impact breakdown.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-2 text-xs font-mono">
+                <span class="px-2.5 py-1 rounded bg-beige/5 border border-beige/10 text-emerald">JavaScript</span>
+                <span class="px-2.5 py-1 rounded bg-beige/5 border border-beige/10 text-terracotta">CSS3</span>
+                <span class="px-2.5 py-1 rounded bg-beige/5 border border-beige/10 text-beige/80">Web Dev</span>
+                <span class="px-2.5 py-1 rounded bg-beige/5 border border-beige/10 text-beige/80">REST APIs</span>
+              </div>
+            </div>
+            <a href="https://github.com/armaali5566-ctrl" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full border border-beige/30 flex items-center justify-center group-hover:bg-terracotta group-hover:border-terracotta transition-all duration-300 -rotate-45 group-hover:rotate-0 flex-shrink-0" title="View Source on GitHub">
+              <svg class="w-5 h-5 text-beige" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 3: Business Intelligence Dashboard -->
+        <article class="project-card w-full sm:w-[90vw] md:w-[60vw] lg:w-[46vw] max-w-[720px] flex-shrink-0 group">
+          <div class="w-full aspect-[16/10] bg-charcoal-light overflow-hidden relative mb-6 rounded-2xl border border-beige/10 shadow-xl">
+            <img
+              src="images/projects/bi-dashboard.svg"
+              alt="Business Intelligence Dashboard Preview"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out opacity-90 group-hover:opacity-100"
+              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80';"
+            />
+            <div class="absolute inset-0 bg-emerald/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+            <div class="absolute top-4 left-4 z-10 px-3 py-1 rounded-md text-xs font-mono bg-charcoal/90 text-beige border border-white/10">
+              Data Analytics &amp; BI
+            </div>
+            <div class="absolute top-4 right-4 z-10 px-2.5 py-1 rounded-md text-xs font-mono text-terracotta bg-charcoal/90 border border-white/10 font-bold">
+              № 03
+            </div>
+          </div>
+          <div class="flex justify-between items-start gap-4">
+            <div>
+              <h4 class="font-display font-bold text-2xl sm:text-3xl mb-2 group-hover:text-emerald transition-colors uppercase text-beige">
+                Business Intelligence Dashboard
+              </h4>
+              <p class="text-beige/70 font-light text-sm sm:text-base max-w-xl leading-relaxed">
+                Executive analytics platform translating multi-table relational data into dynamic revenue curves, margin variance analyses, and sales forecasts.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-2 text-xs font-mono">
+                <span class="px-2.5 py-1 rounded bg-beige/5 border border-beige/10 text-emerald">Power BI</span>
+                <span class="px-2.5 py-1 rounded bg-beige/5 border border-beige/10 text-terracotta">SQL</span>
+                <span class="px-2.5 py-1 rounded bg-beige/5 border border-beige/10 text-beige/80">Excel ETL</span>
+                <span class="px-2.5 py-1 rounded bg-beige/5 border border-beige/10 text-beige/80">DAX</span>
+              </div>
+            </div>
+            <a href="https://github.com/armaali5566-ctrl" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full border border-beige/30 flex items-center justify-center group-hover:bg-emerald group-hover:border-emerald transition-all duration-300 -rotate-45 group-hover:rotate-0 flex-shrink-0" title="View Source on GitHub">
+              <svg class="w-5 h-5 text-beige" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 4: AI-Powered Portfolio -->
+        <article class="project-card w-full sm:w-[90vw] md:w-[60vw] lg:w-[46vw] max-w-[720px] flex-shrink-0 group">
+          <div class="w-full aspect-[16/10] bg-charcoal-light overflow-hidden relative mb-6 rounded-2xl border border-beige/10 shadow-xl">
+            <img
+              src="images/projects/ai-portfolio.svg"
+              alt="AI-Powered Portfolio Preview"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out opacity-90 group-hover:opacity-100"
+              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&q=80';"
+            />
+            <div class="absolute inset-0 bg-terracotta/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+            <div class="absolute top-4 left-4 z-10 px-3 py-1 rounded-md text-xs font-mono bg-charcoal/90 text-beige border border-white/10">
+              Frontend &amp; Generative AI
+            </div>
+            <div class="absolute top-4 right-4 z-10 px-2.5 py-1 rounded-md text-xs font-mono text-terracotta bg-charcoal/90 border border-white/10 font-bold">
+              № 04
+            </div>
+          </div>
+          <div class="flex justify-between items-start gap-4">
+            <div>
+              <h4 class="font-display font-bold text-2xl sm:text-3xl mb-2 group-hover:text-terracotta transition-colors uppercase text-beige">
+                AI-Powered Portfolio
+              </h4>
+              <p class="text-beige/70 font-light text-sm sm:text-base max-w-xl leading-relaxed">
+                A high-performance digital presence with editorial typography, modular TypeScript architecture, and smooth scroll mechanics.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-2 text-xs font-mono">
+                <span class="px-2.5 py-1 rounded bg-beige/5 border border-beige/10 text-emerald">React</span>
+                <span class="px-2.5 py-1 rounded bg-beige/5 border border-beige/10 text-terracotta">JavaScript</span>
+                <span class="px-2.5 py-1 rounded bg-beige/5 border border-beige/10 text-beige/80">Generative AI</span>
+                <span class="px-2.5 py-1 rounded bg-beige/5 border border-beige/10 text-beige/80">Tailwind</span>
+              </div>
+            </div>
+            <a href="https://github.com/armaali5566-ctrl" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full border border-beige/30 flex items-center justify-center group-hover:bg-terracotta group-hover:border-terracotta transition-all duration-300 -rotate-45 group-hover:rotate-0 flex-shrink-0" title="View Source on GitHub">
+              <svg class="w-5 h-5 text-beige" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 6. EXPERIENCE SECTION (REDESIGNED ROW STYLE)                              -->
+  <!-- ========================================================================= -->
+  <section id="experience" class="py-32 px-6 max-w-7xl mx-auto relative bg-beige">
+    <div class="flex flex-col md:flex-row gap-12 lg:gap-16 relative items-start">
+
+      <!-- Left Side: Sticky Title -->
+      <div class="w-full md:w-1/3 md:sticky md:top-32">
+        <h2 class="text-terracotta font-display font-semibold tracking-widest text-xs uppercase mb-3 flex items-center gap-2">
+          <span class="w-3.5 h-3.5 rounded-full border-2 border-terracotta"></span>
+          02 / JOURNEY
+        </h2>
+        <h3 class="font-display font-bold text-4xl sm:text-5xl md:text-6xl tracking-tighter text-charcoal uppercase leading-[0.9]">
+          Experience
+        </h3>
+        <p class="text-muted mt-5 font-light text-base leading-relaxed">
+          My professional journey and practical learning experience applying AI, automation, and data models to practical challenges.
+        </p>
+      </div>
+
+      <!-- Right Side: Scrolling Premium Rows -->
+      <div class="w-full md:w-2/3 border-t-2 border-charcoal">
+
+        <!-- Experience Row 1 -->
+        <div class="border-b border-charcoal/20 group hover:bg-white transition-colors duration-400 py-10 px-6 -mx-6 md:px-8 md:-mx-8">
+          <div class="flex flex-col md:flex-row justify-between items-baseline gap-4 mb-5">
+            <div>
+              <span class="text-terracotta font-bold tracking-widest text-xs font-mono mb-2 block uppercase">
+                [START DATE — END DATE]
+              </span>
+              <h4 class="font-display font-bold text-2xl sm:text-3xl group-hover:text-emerald transition-colors uppercase text-charcoal">
+                AI Developer Intern
+              </h4>
+              <p class="text-base text-muted mt-1 uppercase tracking-wider font-mono">
+                [ORGANIZATION NAME — PLACEHOLDER]
+              </p>
+            </div>
+            <span class="px-3 py-1 rounded-full bg-emerald/10 text-emerald font-mono text-xs font-semibold">
+              Practical Internship
+            </span>
+          </div>
+
+          <p class="text-charcoal/80 font-light text-base leading-relaxed mb-4">
+            Hands-on development of automated data pipelines, prompt engineering workflows, and interactive analytical tooling.
+          </p>
+
+          <ul class="text-base font-light text-charcoal/80 space-y-2.5 max-w-2xl">
+            <li class="flex items-start gap-3">
+              <span class="text-emerald mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald flex-shrink-0"></span>
+              <span>Assisting in the design and evaluation of prompt engineering frameworks and LLM-assisted knowledge extraction pipelines.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-emerald mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald flex-shrink-0"></span>
+              <span>Developing automated data transformation, extraction, and validation scripts using Python and SQL.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-emerald mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald flex-shrink-0"></span>
+              <span>Building responsive frontend components and integrating internal APIs for data visualization.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-emerald mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald flex-shrink-0"></span>
+              <span>Collaborating on practical automation projects combining business logic with AI.</span>
+            </li>
+          </ul>
+
+          <div class="mt-6 flex flex-wrap gap-2 text-xs font-mono">
+            <span class="px-2.5 py-1 rounded bg-charcoal/5 text-charcoal">Python</span>
+            <span class="px-2.5 py-1 rounded bg-charcoal/5 text-charcoal">SQL</span>
+            <span class="px-2.5 py-1 rounded bg-charcoal/5 text-charcoal">Generative AI</span>
+            <span class="px-2.5 py-1 rounded bg-charcoal/5 text-charcoal">Data Analytics</span>
+            <span class="px-2.5 py-1 rounded bg-charcoal/5 text-charcoal">Prompt Engineering</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 7. EDUCATION SECTION (ACADEMIC ROW STYLE)                                 -->
+  <!-- ========================================================================= -->
+  <section id="education" class="py-28 px-6 max-w-7xl mx-auto relative bg-beige border-t border-charcoal/10">
+    <div class="flex flex-col md:flex-row gap-12 lg:gap-16 relative items-start">
+
+      <div class="w-full md:w-1/3 md:sticky md:top-32">
+        <h2 class="text-emerald font-display font-semibold tracking-widest text-xs uppercase mb-3 flex items-center gap-2">
+          <span class="w-3.5 h-3.5 rounded-full border-2 border-emerald"></span>
+          03 / ACADEMICS
+        </h2>
+        <h3 class="font-display font-bold text-4xl sm:text-5xl md:text-6xl tracking-tighter text-charcoal uppercase leading-[0.9]">
+          Education
+        </h3>
+        <p class="text-muted mt-5 font-light text-base leading-relaxed">
+          Grounding technical AI development in commercial strategy, statistics, and mathematics.
+        </p>
+      </div>
+
+      <div class="w-full md:w-2/3 border-t-2 border-charcoal">
+        
+        <!-- Education Row 1: DU SOL -->
+        <div class="border-b border-charcoal/20 group hover:bg-white transition-colors duration-400 py-10 px-6 -mx-6 md:px-8 md:-mx-8">
+          <div class="flex flex-col md:flex-row justify-between items-baseline gap-4 mb-4">
+            <div>
+              <span class="text-emerald font-bold tracking-widest text-xs font-mono mb-2 block uppercase">
+                2025 — PRESENT (PURSUING)
+              </span>
+              <h4 class="font-display font-bold text-2xl sm:text-3xl group-hover:text-terracotta transition-colors uppercase text-charcoal">
+                Bachelor of Commerce (B.Com)
+              </h4>
+              <p class="text-base text-muted mt-1 uppercase tracking-wider font-mono">
+                Delhi University — School of Open Learning (DU SOL)
+              </p>
+            </div>
+            <span class="px-3 py-1 rounded-full bg-emerald/10 text-emerald font-mono text-xs font-semibold">
+              Undergraduate Degree
+            </span>
+          </div>
+          <p class="text-base font-light text-charcoal/80 max-w-2xl leading-relaxed">
+            Focused on business administration, corporate economics, business statistics, and financial accounting—establishing a strong quantitative foundation for commercial decision modeling.
+          </p>
+        </div>
+
+        <!-- Education Row 2: CBSE Class XII -->
+        <div class="border-b border-charcoal/20 group hover:bg-white transition-colors duration-400 py-10 px-6 -mx-6 md:px-8 md:-mx-8">
+          <div class="flex flex-col md:flex-row justify-between items-baseline gap-4 mb-4">
+            <div>
+              <span class="text-muted font-bold tracking-widest text-xs font-mono mb-2 block uppercase">
+                COMPLETED 2025
+              </span>
+              <h4 class="font-display font-bold text-2xl sm:text-3xl group-hover:text-emerald transition-colors uppercase text-charcoal">
+                Senior Secondary (Class XII)
+              </h4>
+              <p class="text-base text-muted mt-1 uppercase tracking-wider font-mono">
+                Central Board of Secondary Education (CBSE)
+              </p>
+            </div>
+            <span class="px-3 py-1 rounded-full bg-charcoal/5 text-charcoal font-mono text-xs font-semibold">
+              Commerce + Math
+            </span>
+          </div>
+          <p class="text-base font-light text-charcoal/80 max-w-2xl leading-relaxed">
+            Specialized in Commerce with Mathematics, establishing core proficiency in advanced algebra, calculus, probability, and microeconomic analysis.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 8. A LITTLE ABOUT ME (PHILOSOPHY & 3 PILLARS)                             -->
+  <!-- ========================================================================= -->
+  <section id="about" class="py-28 px-6 max-w-7xl mx-auto border-t border-charcoal/10 bg-beige-light rounded-3xl my-12 border">
+    <div class="max-w-4xl mx-auto mb-16">
+      <h2 class="text-terracotta font-display font-semibold tracking-widest text-xs uppercase mb-3 flex items-center gap-2">
+        <span class="w-3.5 h-3.5 rounded-full border-2 border-terracotta"></span>
+        04 / PERSPECTIVE
+      </h2>
+      <h3 class="font-display font-bold text-4xl sm:text-5xl md:text-6xl tracking-tighter uppercase text-charcoal mb-8">
+        A Little About Me
+      </h3>
+      <div class="p-8 md:p-10 rounded-2xl bg-white border border-charcoal/10 shadow-sm relative">
+        <p class="font-display text-lg sm:text-xl md:text-2xl text-charcoal/90 leading-relaxed font-normal">
+          &ldquo;I'm Arman Ali, a B.Com student at Delhi University School of Open Learning and an aspiring AI Developer. I'm interested in the intersection of artificial intelligence, data, and software development. I enjoy exploring new technologies, experimenting with AI-assisted development, and building practical digital experiences. My goal is to strengthen my technical foundations and create useful products that solve real problems.&rdquo;
+        </p>
+      </div>
+    </div>
+
+    <!-- 3 Compact Info Cards -->
+    <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      
+      <!-- Card 01 -->
+      <div class="p-8 rounded-2xl bg-white border border-charcoal/10 hover:border-emerald transition-all duration-300 shadow-sm hover:shadow-md flex flex-col justify-between">
+        <div>
+          <span class="font-mono text-xs font-bold text-emerald tracking-widest block mb-4">PILLAR 01</span>
+          <h4 class="font-display font-bold text-xl uppercase text-charcoal mb-3">WHAT I DO</h4>
+          <p class="text-sm font-light text-muted leading-relaxed">
+            Explore AI applications, data analysis, and modern web development architectures.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-charcoal/5 text-[11px] font-mono text-emerald">● ACTIVE FOCUS</div>
+      </div>
+
+      <!-- Card 02 -->
+      <div class="p-8 rounded-2xl bg-white border border-charcoal/10 hover:border-terracotta transition-all duration-300 shadow-sm hover:shadow-md flex flex-col justify-between">
+        <div>
+          <span class="font-mono text-xs font-bold text-terracotta tracking-widest block mb-4">PILLAR 02</span>
+          <h4 class="font-display font-bold text-xl uppercase text-charcoal mb-3">HOW I WORK</h4>
+          <p class="text-sm font-light text-muted leading-relaxed">
+            Learn through experimentation, practical projects, and continuous improvement cycles.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-charcoal/5 text-[11px] font-mono text-terracotta">● PRAGMATIC BUILD</div>
+      </div>
+
+      <!-- Card 03 -->
+      <div class="p-8 rounded-2xl bg-white border border-charcoal/10 hover:border-emerald transition-all duration-300 shadow-sm hover:shadow-md flex flex-col justify-between">
+        <div>
+          <span class="font-mono text-xs font-bold text-emerald tracking-widest block mb-4">PILLAR 03</span>
+          <h4 class="font-display font-bold text-xl uppercase text-charcoal mb-3">WHAT I'M WORKING TOWARDS</h4>
+          <p class="text-sm font-light text-muted leading-relaxed">
+            Building stronger technical skills and developing useful, reliable digital products.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-charcoal/5 text-[11px] font-mono text-emerald">● REAL IMPACT</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 9. GITHUB ACTIVITY GRAPH                                                  -->
+  <!-- ========================================================================= -->
+  <section id="github" class="py-28 bg-beige-light px-6 border-t border-charcoal/10 overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+        <div>
+          <h2 class="text-emerald font-display font-semibold tracking-widest text-xs uppercase mb-2">
+            05 / CODE REPOSITORY
+          </h2>
+          <h3 class="font-display font-bold text-4xl md:text-5xl tracking-tighter uppercase text-charcoal">
+            GitHub Activity
+          </h3>
+          <p class="text-muted font-light text-sm mt-1">
+            Tracking ongoing contributions and software experiments at <span class="font-mono text-charcoal font-medium">@armaali5566-ctrl</span>.
+          </p>
+        </div>
+        
+        <div class="flex items-center gap-4 mt-6 md:mt-0">
+          <p class="text-terracotta font-mono font-bold tracking-widest text-xs uppercase">
+            340+ Contributions This Year
+          </p>
+          <a href="https://github.com/armaali5566-ctrl" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-full border border-charcoal/20 text-xs font-semibold hover:bg-charcoal hover:text-white transition-colors">
+            Visit GitHub Profile &rarr;
+          </a>
+        </div>
+      </div>
+
+      <div class="bg-white p-6 sm:p-8 rounded-2xl border border-charcoal/10 shadow-sm">
+        <div id="github-graph" class="github-graph-container flex gap-1 sm:gap-1.5 overflow-x-auto pb-4 cursor-crosshair w-full">
+          <!-- Populated by JavaScript with realistic commit distribution -->
+        </div>
+        <div class="mt-4 flex flex-wrap justify-between items-center gap-4 text-xs font-mono text-muted uppercase tracking-widest">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald"></span>
+            <span>Active Repository Index: 2026</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span>Less</span>
+            <div class="w-3 h-3 bg-charcoal/5 rounded-sm"></div>
+            <div class="w-3 h-3 bg-emerald/30 rounded-sm"></div>
+            <div class="w-3 h-3 bg-emerald/60 rounded-sm"></div>
+            <div class="w-3 h-3 bg-emerald/85 rounded-sm"></div>
+            <div class="w-3 h-3 bg-emerald rounded-sm"></div>
+            <span>More</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 10. RESUME SECTION                                                        -->
+  <!-- ========================================================================= -->
+  <section id="resume" class="py-32 px-6 bg-charcoal text-beige text-center border-t-[8px] border-emerald relative">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-terracotta font-display font-semibold tracking-widest text-xs uppercase mb-3">
+        06 / DOCUMENTATION
+      </h2>
+      <h3 class="font-display font-bold text-4xl sm:text-5xl md:text-6xl tracking-tighter uppercase mb-6 text-beige">
+        My Resume
+      </h3>
+      <p class="text-beige/70 font-light text-base sm:text-lg mb-10 max-w-xl mx-auto leading-relaxed">
+        Explore my professional background, experience, skills, and education. Includes verified coursework and project summaries.
+      </p>
+
+      <div class="flex flex-wrap justify-center items-center gap-4">
+        <!-- Direct Download Resume Action with Safe Fallback Check -->
+        <a id="download-resume-btn" href="resume/arman-ali-resume.pdf" download="arman-ali-resume.pdf" class="magnetic-btn group bg-emerald text-beige px-9 py-4 rounded-full font-medium hover:bg-terracotta transition-colors duration-400 overflow-hidden relative inline-flex items-center gap-3 shadow-lg">
+          <svg class="w-5 h-5 magnetic-btn-text" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+          </svg>
+          <span class="magnetic-btn-text text-xs uppercase tracking-widest font-semibold">Download Resume (PDF)</span>
+        </a>
+
+        <!-- View in New Tab -->
+        <a href="resume/arman-ali-resume.pdf" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-full border border-beige/30 text-beige hover:bg-beige/10 transition-colors text-xs uppercase tracking-widest font-semibold inline-flex items-center gap-2">
+          <span>View in Browser</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+          </svg>
+        </a>
+      </div>
+
+      <p class="text-[11px] font-mono text-beige/40 mt-6">
+        File target: <code class="text-beige/70">resume/arman-ali-resume.pdf</code> (Placeholder path ready for custom CV upload)
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 11. LET'S CONNECT (CONTACT)                                               -->
+  <!-- ========================================================================= -->
+  <section id="contact" class="bg-beige-light text-charcoal py-36 px-6 border-t border-charcoal/10 relative">
+    <div class="max-w-7xl mx-auto text-center">
+      
+      <p class="text-terracotta font-display font-semibold tracking-widest text-xs uppercase mb-3">
+        07 / TRANSMISSION
+      </p>
+
+      <h2 class="font-display font-bold text-5xl sm:text-7xl md:text-8xl lg:text-9xl tracking-tighter hover:text-terracotta transition-colors duration-400 cursor-pointer inline-block uppercase leading-[0.88]">
+        Let's Talk
+      </h2>
+      
+      <p class="mt-8 text-base sm:text-xl text-muted font-light max-w-lg mx-auto leading-relaxed">
+        Have a project, opportunity, or idea in mind? I'd be happy to connect and collaborate.
+      </p>
+
+      <!-- 4 Direct Channels -->
+      <div class="mt-14 flex flex-wrap justify-center items-center gap-6 sm:gap-10 text-xs sm:text-sm uppercase tracking-widest font-bold">
+        <a href="https://www.linkedin.com/in/arman-ali-111a83422/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald transition-colors pb-1 border-b-2 border-charcoal hover:border-emerald flex items-center gap-1.5">
+          <span>LinkedIn</span> &nearr;
+        </a>
+        <a href="https://github.com/armaali5566-ctrl" target="_blank" rel="noopener noreferrer" class="hover:text-emerald transition-colors pb-1 border-b-2 border-charcoal hover:border-emerald flex items-center gap-1.5">
+          <span>GitHub</span> &nearr;
+        </a>
+        <a href="https://wa.me/918595458279" target="_blank" rel="noopener noreferrer" class="hover:text-emerald transition-colors pb-1 border-b-2 border-charcoal hover:border-emerald flex items-center gap-1.5">
+          <span>WhatsApp ([WHATSAPP NUMBER])</span> &nearr;
+        </a>
+      </div>
+
+      <!-- Copy Email Address Banner -->
+      <div class="mt-12 inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-white border border-charcoal/15 shadow-sm">
+        <span class="text-xs font-mono text-muted uppercase">Email:</span>
+        <span id="email-text" class="font-mono text-xs sm:text-sm font-semibold text-charcoal">armaali5566@gmail.com</span>
+        <button id="copy-email-btn" type="button" class="ml-2 px-3 py-1 rounded-full bg-emerald text-white text-xs font-semibold hover:bg-terracotta transition-colors" title="Copy email address">
+          Copy
+        </button>
+      </div>
+      <div id="copy-toast" class="text-xs font-mono text-emerald mt-2 opacity-0 transition-opacity duration-300">
+        ✓ Email address copied to clipboard!
+      </div>
+
+      <!-- Footer Row -->
+      <div class="mt-28 pt-8 border-t border-charcoal/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-muted font-medium uppercase tracking-widest">
+        <p>&copy; 2026 Arman Ali. All rights reserved.</p>
+        <p class="font-mono text-[11px] text-muted/70">AI Developer | New Delhi, India</p>
+        <a href="#hero" class="hover:text-emerald transition-colors flex items-center gap-2 group">
+          <span>Back to Top</span>
+          <svg class="w-4 h-4 transform group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 12. VANILLA JAVASCRIPT & GSAP LOGIC                                       -->
+  <!-- ========================================================================= -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      
+      // -------------------------------------------------------------
+      // 1. Mobile Menu Drawer Toggle
+      // -------------------------------------------------------------
+      const menuBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const hamburgerIcon = document.getElementById("hamburger-icon");
+      const closeIcon = document.getElementById("close-icon");
+      const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener("click", function () {
+          const isOpen = !mobileMenu.classList.contains("hidden");
+          if (isOpen) {
+            mobileMenu.classList.add("hidden");
+            hamburgerIcon.classList.remove("hidden");
+            closeIcon.classList.add("hidden");
+            menuBtn.setAttribute("aria-expanded", "false");
+          } else {
+            mobileMenu.classList.remove("hidden");
+            hamburgerIcon.classList.add("hidden");
+            closeIcon.classList.remove("hidden");
+            menuBtn.setAttribute("aria-expanded", "true");
+          }
+        });
+
+        mobileNavLinks.forEach(function (link) {
+          link.addEventListener("click", function () {
+            mobileMenu.classList.add("hidden");
+            hamburgerIcon.classList.remove("hidden");
+            closeIcon.classList.add("hidden");
+            menuBtn.setAttribute("aria-expanded", "false");
+          });
+        });
+      }
+
+      // -------------------------------------------------------------
+      // 2. Smooth Scrolling for Anchor Links
+      // -------------------------------------------------------------
+      document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        anchor.addEventListener("click", function (e) {
+          const targetId = this.getAttribute("href");
+          if (targetId && targetId !== "#") {
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              e.preventDefault();
+              const navHeight = 72;
+              const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+              window.scrollTo({
+                top: targetPosition,
+                behavior: "smooth"
+              });
+            }
+          }
+        });
+      });
+
+      // -------------------------------------------------------------
+      // 3. Magnetic Buttons Micro-Interaction
+      // -------------------------------------------------------------
+      const magneticBtns = document.querySelectorAll(".magnetic-btn");
+      magneticBtns.forEach(function (btn) {
+        const text = btn.querySelector(".magnetic-btn-text");
+
+        btn.addEventListener("mousemove", function (e) {
+          const rect = btn.getBoundingClientRect();
+          const halfWidth = rect.width / 2;
+          const halfHeight = rect.height / 2;
+          const x = e.clientX - rect.left - halfWidth;
+          const y = e.clientY - rect.top - halfHeight;
+
+          btn.style.transform = "translate(" + (x * 0.18) + "px, " + (y * 0.18) + "px)";
+          if (text) {
+            text.style.transform = "translate(" + (x * 0.12) + "px, " + (y * 0.12) + "px)";
+          }
+        });
+
+        btn.addEventListener("mouseleave", function () {
+          btn.style.transform = "translate(0px, 0px)";
+          if (text) {
+            text.style.transform = "translate(0px, 0px)";
+          }
+        });
+      });
+
+      // -------------------------------------------------------------
+      // 4. GitHub Activity Graph Population
+      // -------------------------------------------------------------
+      const graphContainer = document.getElementById("github-graph");
+      if (graphContainer) {
+        graphContainer.innerHTML = "";
+        const today = new Date();
+        const days = 52 * 7;
+        
+        // Realistic distribution weights for active developer
+        const contributionLevels = [
+          "bg-charcoal/5",     // 0 commits
+          "bg-emerald/30",     // 1-2 commits
+          "bg-emerald/60",     // 3-5 commits
+          "bg-emerald/85",     // 6-8 commits
+          "bg-emerald",        // 9+ commits
+        ];
+
+        for (let i = 0; i < 52; i++) {
+          const col = document.createElement("div");
+          col.className = "flex flex-col gap-1 sm:gap-1.5 flex-shrink-0";
+
+          for (let j = 0; j < 7; j++) {
+            const cell = document.createElement("div");
+            cell.className = "w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-sm transition-all duration-200 hover:scale-150 hover:z-20 cursor-pointer";
+
+            // Higher density during weekdays and recent weeks
+            const rand = Math.random();
+            let level = 0;
+            if (rand > 0.82) level = 4;
+            else if (rand > 0.65) level = 3;
+            else if (rand > 0.45) level = 2;
+            else if (rand > 0.28) level = 1;
+
+            cell.classList.add(contributionLevels[level]);
+            cell.title = "Week " + (i + 1) + ", Day " + (j + 1) + ": " + (level * 2 + 1) + " contributions";
+            col.appendChild(cell);
+          }
+          graphContainer.appendChild(col);
+        }
+      }
+
+      // -------------------------------------------------------------
+      // 5. Copy Email Clipboard Handler
+      // -------------------------------------------------------------
+      const copyBtn = document.getElementById("copy-email-btn");
+      const copyToast = document.getElementById("copy-toast");
+      if (copyBtn && copyToast) {
+        copyBtn.addEventListener("click", function () {
+          navigator.clipboard.writeText("armaali5566@gmail.com").then(function () {
+            copyToast.classList.remove("opacity-0");
+            copyToast.classList.add("opacity-100");
+            setTimeout(function () {
+              copyToast.classList.remove("opacity-100");
+              copyToast.classList.add("opacity-0");
+            }, 2500);
+          });
+        });
+      }
+
+      // -------------------------------------------------------------
+      // 6. GSAP Animations & Horizontal Scroll Pinning
+      // -------------------------------------------------------------
+      if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Text Entrance
+        gsap.fromTo(".hero-reveal", 
+          { y: "105%", opacity: 0 },
+          {
+            y: "0%",
+            opacity: 1,
+            duration: 1.1,
+            stagger: 0.15,
+            ease: "power4.out",
+            delay: 0.15
+          }
+        );
+
+        // Horizontal Project Scroll Configuration
+        let horizontalScrollTriggerInstance = null;
+
+        function initHorizontalScroll() {
+          const wrapper = document.querySelector(".horizontal-scroll-wrapper");
+          const track = document.getElementById("project-track");
+
+          if (!wrapper || !track) return;
+
+          // Kill previous trigger on resize
+          if (horizontalScrollTriggerInstance) {
+            horizontalScrollTriggerInstance.kill();
+            horizontalScrollTriggerInstance = null;
+            gsap.set(track, { clearProps: "all" });
+          }
+
+          // Desktop only: pin and translate horizontally
+          if (window.innerWidth >= 768) {
+            // Calculate exact total distance needed so the final card is completely visible with padding
+            const totalWidth = track.scrollWidth;
+            const viewportWidth = window.innerWidth;
+            const distanceToScroll = Math.max(0, totalWidth - viewportWidth);
+
+            const tween = gsap.to(track, {
+              x: -distanceToScroll,
+              ease: "none",
+              scrollTrigger: {
+                trigger: wrapper,
+                pin: true,
+                scrub: 0.8,
+                start: "top top",
+                end: () => "+=" + distanceToScroll,
+                invalidateOnRefresh: true,
+                anticipatePin: 1,
+              }
+            });
+
+            horizontalScrollTriggerInstance = tween.scrollTrigger;
+          } else {
+            // Mobile: natural vertical scroll, clear any inline transform
+            gsap.set(track, { clearProps: "transform" });
+          }
+        }
+
+        // Initialize and recalculate on resize with debounce
+        initHorizontalScroll();
+
+        let resizeTimer;
+        window.addEventListener("resize", function () {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(function () {
+            initHorizontalScroll();
+            ScrollTrigger.refresh();
+          }, 200);
+        });
+
+      } else {
+        console.warn("GSAP / ScrollTrigger not loaded. Falling back to native responsive layout.");
+      }
+
+    });
+  </script>
+</body>
+</html>
